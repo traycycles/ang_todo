@@ -8,15 +8,16 @@
 </head>
 <body ng-app="thToDo">
     <h1>My TODOs</h1>
-    <div class="list">
+    <div ng-controller="mainCtrl" class="list">
         <input type="checkbox" />
         <label class="editing-label">A sample todo</label><!--displays the value of the todo-->
-            <input class="editing-label" type="text" /><!--change the value of the todo-->
-    </div>
-    <div class="actions">
-        <a href="">edit</a>
-        <a href="">save</a>
-        <a href="" class="delete">delete</a>
+        <input class="editing-label" type="text" /><!--change the value of the todo-->
+
+        <div class="actions">
+            <a href="">edit</a>
+            <a href="" ng-click="helloWorld()">save</a>
+            <a href="" class="delete">delete</a>
+        </div>
     </div>
 
     <!-- This can also be used as a attribute to an html element
