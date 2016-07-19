@@ -10,14 +10,17 @@
     <h1>My TODOs</h1>
     <div ng-controller="mainCtrl" class="list">
         <input type="checkbox" />
-        <label class="editing-label">A sample todo</label><!--displays the value of the todo-->
+        <label class="editing-label" ng-click="helloWorld()">A sample todo</label><!--displays the value of the todo-->
         <input class="editing-label" type="text" /><!--change the value of the todo-->
 
-        <div class="actions">
-            <a href="">edit</a>
+        <div class="actions" ng-controller="coolCtrl">
+            <a href="" ng-click="whoAmI()">edit</a>
             <a href="" ng-click="helloWorld()">save</a>
             <a href="" class="delete">delete</a>
         </div>
+    </div>
+    <div ng-controller="imASibling">
+        {{foobar}}
     </div>
 
     <!-- This can also be used as a attribute to an html element
