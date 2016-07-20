@@ -6,25 +6,29 @@
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" type="text/css">
     <link href="styles/main.css" rel="stylesheet" type="text/css">
 </head>
-<body ng-app="thToDo">
-    <h1>My TODOs</h1>
+<body ng-app="ang_todo">
+
     <div ng-controller="mainCtrl" class="list">
-        <input ng-model="todo.completed" type="checkbox" />
-        <label  ng-hide="editing" class="editing-label" ng-click="helloWorld()">
-            {{todo.name}}
-        </label><!--displays the value of in the expression (braces)-->
-        <input ng-show="editing" ng-model="todo.name" class="editing-label" type="text" /><!--change the value of the todo-->
-<!--ng-model directive binds the input data to the object in the scope-->
-        <div class="actions">
-            <!--removed the coolCtrl controller above otherwise the child <a> wasn't sharing with parent-->
-            <a href="" ng-click=" editing = !editing">edit</a> <!--passing the ng-click directive an expression to toggle editing between true/false value-->
-            <a href="" ng-click="helloWorld()">save</a>
-            <a href="" class="delete">delete</a>
+        <h1>My TODOs</h1>
+        <div class="item" ng-class="{'editing-item': editing, 'edited': todo.edited}" ng-repeat="todo in todos"><!--to move selectors on the right of page, down by passing object where key is the class to apply-->
+            <input ng-model="todo.completed" type="checkbox" />
+            <label  ng-hide="editing" ng-click="helloWorld()">
+                {{todo.name}}<!--displays the value of in the expression (braces) for each array item-->
+            </label>
+            <input ng-change="todo.edited = true" ng-blur="editing = false;" ng-show="editing" ng-model="todo.name" class="editing-label" type="text" /><!--change the value of the todo-->
+    <!--ng-model directive binds the input data to the object in the scope-->
+            <!--ng-change fires each time it is edited-->
+            <div class="actions">
+                <!--removed the coolCtrl controller above otherwise the child <a> wasn't sharing with parent-->
+                <a href="" ng-click=" editing = !editing">edit</a> <!--passing the ng-click directive an expression to toggle editing between true/false value-->
+                <a href="" ng-click="helloWorld()">save</a>
+                <a href="" class="delete">delete</a>
+            </div>
         </div>
+        {{todos}}
+
     </div>
-    <div ng-controller="imASibling">
-        {{foobar}}
-    </div>
+
 
     <!-- This can also be used as a attribute to an html element
     <div hello-world></div>
