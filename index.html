@@ -22,8 +22,8 @@
             <div class="actions">
                 <!--removed the coolCtrl controller above otherwise the child <a> wasn't sharing with parent-->
                 <a href="" ng-click=" editing = !editing">edit</a> <!--passing the ng-click directive an expression to toggle editing between true/false value-->
-                <a href="" ng-click="helloConsole()">save</a>
-                <a href="" class="delete">delete</a>
+                <a href="" ng-click="saveTodo(todo)">save</a>
+                <a href="" ng-click="deleteTodo(todo, $index)" class="Delete">delete</a>
             </div>
         </div>
         {{todos}}

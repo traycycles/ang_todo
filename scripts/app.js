@@ -17,6 +17,15 @@ angular.module("ang_todo",[] )
         $scope.todos = response.data; /* todos */
     });
 
+    $scope.deleteTodo = function(todo, $index){
+        dataService.deleteTodo(todo);
+        $scope.todos.splice($index, 1);
+    };
+
+    $scope.saveTodo = function(todo){
+        dataService.saveTodo(todo);
+    };
+
     })
     /* 'method chaining' is chaining one method after another... totally allowed */
 .service('dataService', function ($http) { /*passing name of service, and callback*/
@@ -26,9 +35,18 @@ angular.module("ang_todo",[] )
     };
 
     this.getTodos = function(callback){
-        $http.get('mock/todos.json')
+        $http.get('mock/todos.json') /*similar to $_GET (PHP)*/
         .then(callback)
-    }
+    };
+
+    this.deleteTodo = function(todo){
+        console.log ("The " + todo.name + " todo has been deleted!");
+        //other logic
+    };
+    this.saveTodo = function (todo) {
+      console.log("The " + todo.name + " todo has been saved!");
+        //other logic
+    };
 
 });
 
