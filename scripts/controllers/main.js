@@ -8,7 +8,7 @@ angular.module('ang_todo')
 
     $scope.addTodo = function(){
         var todo = {name: "This is a new todo."};
-        $scope.todos.push(todo);
+        $scope.todos.unshift(todo); /*unshift adds to beginning of list instead of end (push)*/
     };
 
     $scope.helloConsole = dataService.helloConsole;
