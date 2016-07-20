@@ -11,6 +11,7 @@
     <div ng-controller="mainCtrl" class="list">
         <h1>My TODOs</h1>
         <div class="item" ng-class="{'editing-item': editing, 'edited': todo.edited}" ng-repeat="todo in todos"><!--to move selectors on the right of page, down by passing object where key is the class to apply-->
+            <!--also added the .edited class as key to expression to evaluate as value-->
             <input ng-model="todo.completed" type="checkbox" />
             <label  ng-hide="editing" ng-click="helloWorld()">
                 {{todo.name}}<!--displays the value of in the expression (braces) for each array item-->
