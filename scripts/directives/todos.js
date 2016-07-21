@@ -3,9 +3,9 @@
  */
 
 angular.module('ang_todo')
-    .directive('todos', function(){
+    .directive('todos', function(){ //1st param is name of directive
         return{
-            templateUrl: 'templates/todos.html',
+            templateUrl: 'templates/todos.html', //loads html file as a directive template
             controller: 'mainCtrl'
             // replace: true
                          // --optional  ...replaces the todo directive tags and injects template
