@@ -23,8 +23,13 @@ angular.module('ang_todo')
         $scope.todos.splice($index, 1);
     };
 
-    $scope.saveTodo = function(todo){
-        dataService.saveTodo(todo);
+    $scope.saveTodos = function(){
+        var filteredTodos = $scope.todos.filter(function(todo){ //all todos (scope.todos is an array) that have been edited and filter into an array
+            if(todo.edited){
+                return todo;
+            }
+        });
+        dataService.saveTodos(filteredTodos);
     };
 
 });
